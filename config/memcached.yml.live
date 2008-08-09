@@ -1,0 +1,7 @@
+defaults:
+  ttl: 0
+  namespace: groupy
+  sessions: false
+  fragments: true
+  servers: localhost:11211
+  benchmarking: true
