@@ -1,0 +1,11 @@
+tmp
+.DS_Store
+public/javascripts/cache
+public/stylesheets/cache
+coverage
+*.log
+script/pids
+.*.swp
+.*.swo
+config/*.yml
+*.pid

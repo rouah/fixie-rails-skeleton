@@ -1,0 +1,7 @@
+defaults:
+  ttl: 0
+  namespace: tanga
+  sessions: false
+  fragments: true
+  servers: localhost:11211
+  benchmarking: true

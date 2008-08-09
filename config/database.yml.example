@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: groupy_dev
+  min_messages: warning
+
+
+test:
+  adapter: postgresql
+  database: groupy_test
+
+production:
+  adapter: postgresql
+  database: groupy_production

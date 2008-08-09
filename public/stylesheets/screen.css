@@ -1,0 +1,187 @@
+/* =ORDER
+ 1. display
+ 2. float and position
+ 3. width and height
+ 4. Specific element properties
+ 5. margin
+ 6. border
+ 7. padding
+ 8. background
+ 9. color
+10. font related properties
+----------------------------------------------- */
+
+/* =MAIN
+----------------------------------------------- */
+body, td, input, select, textarea, a {
+  font: 14px/1.5em "Helvetica Neue", arial, helvetica, verdana, sans-serif;
+}
+html, body, form, fieldset, h1, h2, h3, h4, h5, h6, 
+p, pre, blockquote, ul, ol, dl, address {
+  margin: 0;
+  padding: 0;
+}
+li, dd, blockquote {
+  margin-left: 1em;
+}
+fieldset {
+  border: none;
+}
+img, table {
+  border-width: 0;
+}
+hr {
+  display: none;
+}
+h1 {
+	font-size: 2em;
+	line-height: 1em;
+	margin-top: 0.25em;
+	margin-bottom: 0.9em;
+}
+h2 {
+	font-size: 1.5em;
+	line-height: 1.125em;
+}
+h3 {
+	font-size: 1.25em;
+	line-height: 1.125em;
+	margin-bottom: 1.125em;
+}
+h4 {
+	font-size: 1.333em;
+	line-height: 1.2857em;
+	margin-bottom: 1.2857em;
+}
+p, ul, dl, ol, blockquote, pre, td, th {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+}
+p.small {
+	font-size: 0.8333em;
+	line-height: 1.8em;
+	margin-bottom: 1.8em;
+}
+table {
+	border-collapse: collapse;
+}
+
+/* =COLORS
+----------------------------------------------- */
+body {
+  color: #333;
+}
+a {
+  font-size: 100%;
+}
+a:link {
+  color: #0000cc;
+}
+a:visited {
+  color: #551a8b;
+}
+a:hover {
+  color: #0000cc;
+}
+
+
+/* =CLEAR FLOATS
+----------------------------------------------- */
+/* clear float */
+.clr:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
+.clr {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clr {height: 1%;}
+.clr {display: block;}
+/* End hide from IE-mac */
+
+
+/* =COMMON
+----------------------------------------------- */
+.vtop {
+  vertical-align: top;
+}
+.vmid {
+  vertical-align: middle;
+}
+.vbot {
+  vertical-align: bottom;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+  text-align: right;
+}
+
+/* =FLASH MESSAGES 
+----------------------------------------------- */
+#message_box {
+  margin: 16px 0 12px;
+  padding: 5px 8px;
+  background-color: #eee;
+}
+#message_box.success {
+  background-color: #e0f5e0;
+  border-top: 1px dashed #72b674;
+  border-bottom: 1px dashed #72b674;
+}
+#message_box.error {
+  background-color: #fffed8;
+  border-top: 1px dashed #d4d06e;
+  border-bottom: 1px dashed #d4d06e;
+}
+#message_box strong {
+  color: #333;
+}
+#message_box ol {
+  margin: 5px 4px;
+}
+#message_box li {
+  padding-left: 0;
+  margin-left: 38px;
+}
+#message_box img {
+  vertical-align: top;
+  margin-top: 3px;
+}
+#err_fix {
+  margin: 8px 0 3px 24px;
+  font-style: italic;
+  font-size: 90%;
+}
+
+/* =FORMS
+----------------------------------------------- */
+.fieldWithErrors {
+  display: inline;
+}
+form {
+  margin: 0;
+}
+form label {
+  cursor: pointer;
+}
+
+/* =LAYOUT
+----------------------------------------------- */
+
+/* =HEADER
+----------------------------------------------- */
+
+/* =NAV
+----------------------------------------------- */
+
+/* =FOOTER
+----------------------------------------------- */
+
+/* =CONTENT
+----------------------------------------------- */

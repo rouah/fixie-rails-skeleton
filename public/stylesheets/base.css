@@ -1,0 +1,78 @@
+
+h1 {
+  font-size: 197%; }
+
+h2 {
+  font-size: 174%; }
+
+h3 {
+  font-size: 153.9%; }
+
+h4 {
+  font-size: 138.5%;
+  margin: 0.5em 0; }
+
+h5 {
+  font-size: 123.1%;
+  margin: 0.3em 0; }
+
+h1,h2,h3 {
+  margin: 1em 0; }
+
+h1,h2,h3,h4,h5,h6,strong {
+  font-weight: bold; }
+  h1 .title, h2 .title, h3 .title, h4 .title, h5 .title, h6 .title, strong .title {
+    margin: 0; }
+
+abbr,acronym {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+em {
+  font-style: italic; }
+
+blockquote,ul,ol,dl {
+  margin: 1em; }
+
+ol,ul,dl {
+  margin-left: 2em; }
+
+ol li {
+  list-style: decimal outside; }
+
+ul li {
+  list-style: disc outside; }
+
+dl dd {
+  margin-left: 1em; }
+
+dt {
+  font-weight: bold; }
+
+th {
+  border-bottom: 2px solid #EAEAD8;
+  font-weight: bold; }
+
+td {
+  border-bottom: 1px solid #F5F5E9; }
+
+th,td {
+  padding: 0.25em 0.7em 0.2em 0; }
+
+table {
+  width: 100%; }
+
+caption {
+  margin: .5em;
+  text-align: left;
+  font-size: 161.6%;
+  font-weight: bold;
+  color: #DF851B; }
+
+p,fieldset,table,pre {
+  margin-bottom: 1em; }
+
+
+input[type=text],input[type=password],textarea {
+  width: 12.25em;
+  *width: 11.9em; }

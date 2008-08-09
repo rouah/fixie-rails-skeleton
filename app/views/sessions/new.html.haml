@@ -1,0 +1,20 @@
+= flash_messages
+
+- form_tag session_path, :class => "new_session" do
+  %p
+    %label{:for => "username"} Username
+    = text_field_tag 'username'
+  
+  %p
+    %label{:for => "password"} Password
+    = password_field_tag 'password'
+
+  %p
+    = link_to "forgot your password?", new_lost_password_path
+
+  %p
+    = check_box_tag 'remember_me'
+    %label{:for=>"remember_me"} Remember me
+
+  %p
+    = submit_tag

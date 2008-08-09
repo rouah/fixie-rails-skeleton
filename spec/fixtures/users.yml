@@ -1,0 +1,64 @@
+<% salt = '60b7720f9406ff1eeba068b0c50169cebe7d1fa4' %>
+<% pass = '8361d9bf47eecdfe884cd93862c65859dec0b6b4' %> # test
+
+admin: 
+  username:            admin
+  email:               admin@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activated_at:        <%= 1.day.ago.to_s :db %>
+  password_reset_code: 
+  enabled:             true
+  created_at:          <%= 5.days.ago.to_s :db %>
+
+manager: 
+  username:            mananger
+  email:               mananger@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activated_at:        <%= 1.day.ago.to_s :db %>
+  password_reset_code: 
+  enabled:             true
+  created_at:          <%= 5.days.ago.to_s :db %>
+
+testuser:              
+  username:            testuser
+  email:               testuser@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activated_at:        <%= 1.day.ago.to_s :db %>
+  password_reset_code: 
+  enabled:             true
+  created_at:          <%= 5.days.ago.to_s :db %>
+
+disabled:
+  username:            disabled
+  email:               disabled@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activated_at:        <%= 1.day.ago.to_s :db %>
+  password_reset_code: 
+  enabled:             false
+  created_at:          <%= 5.days.ago.to_s :db %>
+
+
+unverified:            
+  username:            unverified
+  email:               unverified@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activation_code:     5bf824fc1087f5af71d5a65b2a5dc76da0346321
+  activated_at:     
+  password_reset_code: 65b2a5dc76da03463215bf824fc1087f5af71d5a
+  enabled:             true
+  created_at:          <%= 5.days.ago.to_s :db %>
+                       
+forgot_pass:           
+  username:            forgot_pass
+  email:               forgot_pass@example.com
+  crypted_password:    <%= pass %>
+  salt:                <%= salt %>
+  activated_at:        <%= 1.day.ago.to_s :db %>
+  password_reset_code: a5d17fa5f7801cf428fb51236430ad67cd5a2b56
+  enabled:             true
+  created_at:          <%= 5.days.ago.to_s :db %>

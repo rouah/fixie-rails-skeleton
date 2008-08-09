@@ -1,0 +1,15 @@
+%table#users{:cellspacing => "0"}
+  %tr.user
+    %th.name Username
+    %th.email Email
+    %th.edit &nbsp;
+
+  - @users.each do |user|
+    %tr.user{:class => "user #{cycle('shade', '')}"}
+      %td.name
+        = h user.username
+      %td.email
+        = h user.email
+      %td.edit
+        = link_to h("edit"), edit_user_path(user)
+        = link_to image_tag("icons/delete.gif", :alt => "Delete user", :class => "vmid"), user_path(user), :method => "delete", :confirm => "Are you sure?"

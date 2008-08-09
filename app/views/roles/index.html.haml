@@ -1,0 +1,10 @@
+%h2== Roles for #{h @user.username}
+ 
+%h3 Roles assigned:
+%ul
+  = render :partial => @user.roles
+ 
+%h3 Roles available:
+%ul
+  = render :partial => @roles - @user.roles 
+

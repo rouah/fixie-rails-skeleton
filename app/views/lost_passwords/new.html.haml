@@ -1,0 +1,16 @@
+= flash_messages
+
+- if flash[:notice]
+  %p
+    You have been e-mailed instructions on changing your password.
+    Please follow the link in the e-mail to complete your request.
+
+- else
+  - form_tag lost_passwords_path do
+    .form_partial
+      %label{:for => "user_email" }Email address:
+      = text_field_tag :email, "", :class => "half"
+
+    %p
+      = submit_tag
+      = link_to "cancel", new_session_url
