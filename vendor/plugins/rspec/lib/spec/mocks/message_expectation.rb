@@ -3,6 +3,10 @@ module Spec
 
     class BaseExpectation
       attr_reader :sym
+      attr_writer :expected_received_count, :method_block, :expected_from
+      protected :expected_received_count=, :method_block=, :expected_from=
+      attr_accessor :error_generator
+      protected :error_generator, :error_generator=
       
       def initialize(error_generator, expectation_ordering, expected_from, sym, method_block, expected_received_count=1, opts={})
         @error_generator = error_generator
@@ -13,7 +17,7 @@ module Spec
         @return_block = nil
         @actual_received_count = 0
         @expected_received_count = expected_received_count
-        @args_expectation = ArgumentExpectation.new([AnyArgsConstraint.new])
+        @args_expectation = ArgumentExpectation.new([ArgumentConstraints::AnyArgsConstraint.new])
         @consecutive = false
         @exception_to_raise = nil
         @symbol_to_throw = nil
@@ -22,6 +26,23 @@ module Spec
         @at_most = nil
         @args_to_yield = []
       end
+      
+      def build_child(expected_from, method_block, expected_received_count, opts={})
+        child = clone
+        child.expected_from = expected_from
+        child.method_block = method_block
+        child.expected_received_count = expected_received_count
+        new_gen = error_generator.clone
+        new_gen.opts = opts
+        child.error_generator = new_gen
+        child.clone_args_to_yield @args_to_yield
+        child
+      end
+      
+      def error_generator_opts=(opts={})
+        @error_generator.opts = opts
+      end
+      protected :error_generator_opts=
       
       def expected_args
         @args_expectation.args
@@ -63,12 +84,17 @@ module Spec
       end
       
       def and_yield(*args)
+        if @args_to_yield_were_cloned
+          @args_to_yield.clear
+          @args_to_yield_were_cloned = false
+        end
+        
         @args_to_yield << args
         self
       end
   
       def matches(sym, args)
-        @sym == sym and @args_expectation.check_args(args)
+        @sym == sym and @args_expectation.args_match?(args)
       end
       
       def invoke(args, block)
@@ -102,6 +128,11 @@ module Spec
         ensure
           @actual_received_count += 1
         end
+      end
+
+      def called_max_times?
+        @expected_received_count != :any && @expected_received_count > 0 &&
+          @actual_received_count >= @expected_received_count
       end
       
       protected
@@ -147,12 +178,17 @@ module Spec
           @return_block.call(*args)
         end
       end
+
+      def clone_args_to_yield(args)
+        @args_to_yield = args.clone
+        @args_to_yield_were_cloned = true
+      end
     end
     
     class MessageExpectation < BaseExpectation
       
       def matches_name_but_not_args(sym, args)
-        @sym == sym and not @args_expectation.check_args(args)
+        @sym == sym and not @args_expectation.args_match?(args)
       end
        
       def verify_messages_received   
@@ -202,8 +238,7 @@ module Spec
       end
 
       def with(*args, &block)
-        @method_block = block if block
-        @args_expectation = ArgumentExpectation.new(args)
+        @args_expectation = ArgumentExpectation.new(args, &block)
         self
       end
       
